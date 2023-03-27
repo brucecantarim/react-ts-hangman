@@ -4,7 +4,7 @@ import hangman from './../hangman.svg';
 
 const App = () => {
   // define the word
-  const word = 'Behaviour';
+  const word = 'Behaviour'; // accepts any size word, we could get a random word from a json dict or API
 
   // define starting underscores
   const generatePlaceholder = (word: string) => {
@@ -32,7 +32,7 @@ const App = () => {
     setPlaceholder(generatePlaceholder(word));
     setPreviousAttempts([]);
     setLives(9);
-    
+
     // we could also update a counter for a total of Win / Lose score
   };
 
@@ -90,8 +90,6 @@ const App = () => {
     setInputValue('');
   }, [inputValue]);
 
-  // display previous letter attempts
-
   return (
     <main
       style={{
@@ -129,6 +127,8 @@ const App = () => {
       )}
     </main>
   );
+
+  // For improvements, we could separate a few elements in it's own components, such as the Input, or the Hangman itself. It would be neat to draw each limb as mistakes are made, it would have to receive the number of lives and display each limb as the value changes. Also could make a total score with the win / lose total across playthroughs, and save the value to local storage.
 };
 
 export default App;
