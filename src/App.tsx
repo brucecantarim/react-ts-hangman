@@ -27,9 +27,17 @@ const App = () => {
     setInputValue(event.target.value);
   };
 
-  const handleClick = () => {
+  const resetGame = () => {
     // here is where we could change the word for another one
     setPlaceholder(generatePlaceholder(word));
+    setPreviousAttempts([]);
+    setLives(9);
+    
+    // we could also update a counter for a total of Win / Lose score
+  };
+
+  const handleClick = () => {
+    resetGame();
   };
 
   // check if the letter is present at the word
@@ -47,9 +55,8 @@ const App = () => {
       if (letterAlreadyAttempted) {
         return false;
       }
-
+      setPreviousAttempts([...previousAttempts, letter]);
       const wordIncludesLetter = checkLetter(letter);
-      console.log(letter, wordIncludesLetter);
       if (wordIncludesLetter) {
         return true;
       } else {
@@ -71,6 +78,11 @@ const App = () => {
     setPlaceholder(newPlaceholder);
   };
 
+  // get an array of previous mistakes
+  const getPreviousMistakes = () => {
+    return previousAttempts.filter((item) => !checkLetter(item)).join(', ');
+  };
+
   useEffect(() => {
     if (shouldUpdatePlaceholder(inputValue)) {
       updatePlaceholder(inputValue);
@@ -87,20 +99,27 @@ const App = () => {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+        fontFamily: 'Helvetica, Arial, Sans',
+        color: 'black',
       }}
     >
-      <img style={{ width: '100px' }} src={hangman} alt="First time?" />
+      <img style={{ width: '80px' }} src={hangman} alt="First time?" />
+      <span>Remaining lives: {lives}</span>
       <h2>{[...placeholder].join(' ')}</h2>
       {!gameOver && (
-        <>
+        <div style={{ display: 'flex', gap: '1rem' }}>
           <label htmlFor="player-guess">Guess the letter: </label>
           <input
             name="player-guess"
+            style={{
+              width: '2ch',
+            }}
             value={inputValue}
             onChange={handleChange}
           />
-        </>
+        </div>
       )}
+      <em>{getPreviousMistakes() && `Mistakes: ${getPreviousMistakes()}`}</em>
 
       {gameOver && (
         <>
