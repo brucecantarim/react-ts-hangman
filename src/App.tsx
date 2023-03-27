@@ -27,6 +27,11 @@ const App = () => {
     setInputValue(event.target.value);
   };
 
+  const handleClick = () => {
+    // here is where we could change the word for another one
+    setPlaceholder(generatePlaceholder(word));
+  };
+
   // check if the letter is present at the word
   const checkLetter = (letter, value = word) => {
     return [...value.toLowerCase()].includes(letter.toLowerCase());
@@ -88,7 +93,7 @@ const App = () => {
       <h2>{[...placeholder].join(' ')}</h2>
       {!gameOver && (
         <>
-          <label for="player-guess">Guess the letter: </label>
+          <label htmlFor="player-guess">Guess the letter: </label>
           <input
             name="player-guess"
             value={inputValue}
@@ -100,7 +105,7 @@ const App = () => {
       {gameOver && (
         <>
           <h3>{lives <= 0 ? 'You lose!' : 'Congratulations!'}</h3>
-          <button>Try again?</button>
+          <button onClick={handleClick}>Try again?</button>
         </>
       )}
     </main>
