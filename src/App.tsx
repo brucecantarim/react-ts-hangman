@@ -120,10 +120,18 @@ const App = () => {
       <em>{getPreviousMistakes() && `Mistakes: ${getPreviousMistakes()}`}</em>
 
       {gameOver && (
-        <>
-          <h3>{lives <= 0 ? 'You lose!' : 'Congratulations!'}</h3>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+          }}
+        >
+          <h3>
+            {lives <= 0 ? 'Oh, no! You lose!' : 'Congratulations! You win!'}
+          </h3>
           <button onClick={handleClick}>Try again?</button>
-        </>
+        </div>
       )}
     </main>
   );
