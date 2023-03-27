@@ -1,0 +1,15 @@
+<svg id="hangman-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 400 500" stroke="#000000" fill="none">
+  <polyline stroke-width="10" stroke-miterlimit="10" points="253.996,142.899 253.996,59.666 115.663,59.666 115.663,434.999 "></polyline>
+  <line stroke-width="10" stroke-miterlimit="10" x1="392.33" y1="434.999" x2="8.33" y2="434.999"></line>
+  <g id="added-parts">
+    <circle stroke-width="10" stroke-miterlimit="10" cx="254.404" cy="174.26" r="29.412"></circle>
+    <line stroke-width="10" stroke-miterlimit="10" x1="254.404" y1="203.672" x2="254.404" y2="314.056"></line>
+    <line stroke-width="10" stroke-miterlimit="10" x1="255.339" y1="311.094" x2="185.875" y2="406.468"></line>
+    <line stroke-width="10" stroke-miterlimit="10" x1="323.46" y1="406.468" x2="253.996" y2="311.094"></line>
+    <line stroke-width="10" stroke-miterlimit="10" x1="254.404" y1="229.409" x2="164.11" y2="256.834"></line>
+    <line stroke-width="10" stroke-miterlimit="10" x1="254.404" y1="229.409" x2="344.699" y2="256.834"></line>
+    <circle fill="#000000" cx="243.663" cy="169.333" r="3.667"></circle>
+    <circle fill="#000000" cx="265.663" cy="169.333" r="3.667"></circle>
+    <path stroke-width="4" stroke-miterlimit="10" d="M245.571,190.082c0-4.879,3.955-8.833,8.833-8.833 c4.879,0,8.833,3.955,8.833,8.833"></path>
+  </g>
+</svg>
