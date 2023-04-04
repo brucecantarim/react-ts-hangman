@@ -23,7 +23,6 @@ const App = () => {
     lives <= 0 || placeholder.join('').toLowerCase() === word.toLowerCase();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // TODO: Enforce only one letter input at a time
     setInputValue(event.target.value);
   };
 
@@ -41,11 +40,11 @@ const App = () => {
   };
 
   // check if the letter is present at the word
-  const checkLetter = (letter, value = word) => {
+  const checkLetter = (letter: string, value = word) => {
     return [...value.toLowerCase()].includes(letter.toLowerCase());
   };
 
-  const shouldUpdatePlaceholder = (letter) => {
+  const shouldUpdatePlaceholder = (letter: string) => {
     if (letter) {
       // Loop was running when letter was '', this fix Winning condition
       const letterAlreadyAttempted = checkLetter(
@@ -66,7 +65,7 @@ const App = () => {
   };
 
   // update the underscores with the letter if guessed correctly, at the right positions
-  const updatePlaceholder = (letter) => {
+  const updatePlaceholder = (letter: string) => {
     let newPlaceholder = [...word].map((item, index) => {
       if (item.toLowerCase() === letter.toLowerCase()) {
         return item;
